@@ -28,8 +28,6 @@ Run entirely in Google Colab (T4 GPU — see note below). Each has a "Write here
 
 ## Results
 
-_Fill in after running the notebook — paste the actual plots here._
-
 | | |
 |---|---|
 | ![training curves](docs/training_curves.png) | ![grad-cam](docs/gradcam.png) |
@@ -37,10 +35,14 @@ _Fill in after running the notebook — paste the actual plots here._
 | ![failure cases](docs/failure_cases.png) | ![calibration](docs/calibration.png) |
 | Confident-but-wrong failure cases | Reliability diagram (ECE) |
 
-| Variant | Val mIoU | Boundary mIoU | Latency (ms/batch) |
-|---|---|---|---|
-| Frozen encoder | _fill in_ | _fill in_ | _fill in_ |
-| Fine-tuned | _fill in_ | _fill in_ | _fill in_ |
+| Variant | Val mIoU | Full mIoU | Boundary mIoU | Boundary gap | Latency (ms/batch) |
+|---|---|---|---|---|---|
+| Frozen encoder | 0.766 | 0.656 | 0.657 | -0.001 | 267.6 |
+| Fine-tuned | 0.764 | 0.656 | 0.642 | +0.013 | 267.5 |
+
+The frozen encoder essentially ties (and marginally beats) full fine-tuning on val mIoU, with identical inference latency — and, counter-intuitively, fine-tuning introduces a small boundary-precision penalty that frozen doesn't have. See the notebook's "Final synthesis" section for the full interpretation.
+
+*Val mIoU and Full mIoU are two different metrics, not a typo* — Val mIoU is `iou_score` from the training loop (batch-averaged, with an epsilon term); Full mIoU is `evaluate_boundary_vs_full`'s per-image IoU averaged over the full validation set (no epsilon, images with an empty union excluded). They measure the same thing but aren't numerically comparable to each other — only Val-to-Val and Full-to-Full comparisons across variants are meaningful.
 
 ## Running it
 
