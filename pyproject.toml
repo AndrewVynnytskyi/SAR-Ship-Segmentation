@@ -1,0 +1,34 @@
+[project]
+name = "sar-ship-segmentation"
+version = "0.1.0"
+description = "DeepLabV3+ semantic segmentation research — HRSID SAR ship segmentation, trained on Google Colab."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "torch~=2.9.1",
+    "opencv-python",
+    "albumentations",
+    "timm",
+    "grad-cam",
+    "pycocotools",
+    "matplotlib",
+    "numpy",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+# Notebooks are analysis artifacts, not lint targets — HRSID_Segmentation.ipynb
+# keeps its exact cell outputs and execution history, so Ruff never touches it.
+# Only .py scripts (future tooling, tests, etc.) are linted.
+extend-exclude = ["*.ipynb"]
+
+[tool.ruff.lint]
+# E/F: pyflakes + pycodestyle errors (replaces flake8's core checks)
+# I: import sorting (replaces isort)
+select = ["E", "F", "I"]
+
+[tool.ruff.format]
+# replaces black
+quote-style = "double"
+indent-style = "space"

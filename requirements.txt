@@ -1,0 +1,8 @@
+torch~=2.9.1
+opencv-python
+albumentations
+timm
+grad-cam
+pycocotools
+matplotlib
+numpy

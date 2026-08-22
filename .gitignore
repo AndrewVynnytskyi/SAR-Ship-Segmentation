@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+.venv/
+venv/
+env/
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# ML data / weights / experiment artifacts (all pulled fresh in Colab, never committed)
+data/
+models/*.pt
+models/*.pth
+models/cache/
+*.ckpt
+wandb/
+runs/
+lightning_logs/
+mlruns/
+
+# Colab / Drive local mirrors
+drive/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+
+# Env / secrets
+.env
+kaggle.json
+
+# Disposable notebook-generator tooling, not part of the deliverable
+scratch_build/
