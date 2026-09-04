@@ -28,7 +28,7 @@ All run in Google Colab on a T4. Each has my own written interpretation in the n
 4. **Boundary IoU vs. full IoU** — isolates DeepLabV3+'s known weak point (fine boundary precision) from overall accuracy
 5. **Calibration / ECE** — is the model's confidence trustworthy?
 6. **Accuracy vs. latency** — the real cost of fine-tuning
-7. **Extra visualizations** — mIoU bar chart, boundary-gap chart, and a 30-row frozen-vs-fine-tuned side-by-side with both variants' masks and Grad-CAMs
+7. **Extra visualizations** — boundary-gap chart, and a 30-row frozen-vs-fine-tuned side-by-side with both variants' masks and Grad-CAMs
 
 ## Results
 
